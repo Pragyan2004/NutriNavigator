@@ -6,7 +6,6 @@ A comprehensive nutrition and fitness platform that leverages Groq's ultra-fast 
 - Backend: Python, Flask, LangChain
 - Frontend: HTML5, CSS3, Tailwind CSS, JavaScript
 - AI/ML: Groq API, Llama3-70b, Prompt Engineering
-- Infrastructure: Render (or your hosting platform)
 
 # Project Workflow:
 
