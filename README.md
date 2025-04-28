@@ -48,7 +48,6 @@ A comprehensive nutrition and fitness platform that leverages Groq's ultra-fast 
 ![Screenshot 2025-04-28 203525](https://github.com/user-attachments/assets/975dcadf-4c8c-4182-b88a-c3298b778291)
 ![Screenshot 2025-04-28 203540](https://github.com/user-attachments/assets/d1c01099-bef9-440f-aaf1-877ad579d1e6)
 ![Screenshot 2025-04-28 203554](https://github.com/user-attachments/assets/6c818189-19e2-48d7-9aee-4235d59df045)
-![Screenshot 2025-04-28 203611](https://github.com/user-attachments/assets/c07a94b6-df95-481a-a2f1-a5159bc70a17)
 ![Screenshot 2025-04-28 203649](https://github.com/user-attachments/assets/17e856b4-696a-4c1b-8ee3-a11f1ebdbbde)
 ![Screenshot 2025-04-28 203723](https://github.com/user-attachments/assets/8aec03e5-c16a-434f-8321-239278b28664)
 
