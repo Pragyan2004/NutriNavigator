@@ -1,0 +1,508 @@
+{% extends "base.html" %}
+
+{% block title %}How It Works | NutriNavigator{% endblock %}
+
+{% block extra_css %}
+<style>
+    
+    .step-card {
+        transition: all 0.3s ease;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .step-number {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        font-weight: bold;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        position: relative;
+    }
+    
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
+    
+    .slide-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideUp 0.8s forwards;
+    }
+    
+    .scale-in {
+        transform: scale(0.9);
+        opacity: 0;
+        animation: scaleIn 0.6s forwards;
+    }
+    
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+        to { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes scaleIn {
+        to { 
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    
+    .process-timeline {
+        position: relative;
+        padding-left: 50px;
+    }
+    
+    .process-timeline::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--primary-color);
+        border-radius: 2px;
+    }
+    
+    .timeline-step {
+        position: relative;
+        margin-bottom: 40px;
+    }
+    
+    .timeline-step::before {
+        content: '';
+        position: absolute;
+        left: -40px;
+        top: 5px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--accent-color);
+        border: 4px solid var(--primary-color);
+    }
+    
+    .demo-container {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    
+    .demo-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .demo-container:hover .demo-overlay {
+        opacity: 1;
+    }
+    
+    .faq-item {
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .benefit-card {
+        transition: all 0.3s ease;
+        border-left: 4px solid var(--accent-color);
+    }
+    
+    .benefit-card:hover {
+        transform: translateX(10px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="how-it-works-hero text-black d-flex align-items-center fade-in">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4 slide-up">How NutriNavigator Works</h1>
+                <p class="lead mb-0 slide-up delay-1">Your personalized health journey in three simple steps</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 bg-light">
+    <div class="container py-4">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="step-card bg-white p-4 text-center shadow-sm slide-up">
+                    <div class="step-number bg-primary text-white mx-auto">
+                        <span>1</span>
+                    </div>
+                    <h3 class="h4 mb-3">Create Your Profile</h3>
+                    <p>Tell us about your dietary preferences, health goals, allergies, and lifestyle. The more we know, the better we can personalize your experience.</p>
+                    <div class="mt-4">
+                        <img src="{{ url_for('static', filename='images/profile-step.png') }}" 
+                             alt="Create Profile" 
+                             class="img-fluid rounded"
+                             style="max-height: 150px;">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="step-card bg-white p-4 text-center shadow-sm slide-up delay-1">
+                    <div class="step-number bg-primary text-white mx-auto">
+                        <span>2</span>
+                    </div>
+                    <h3 class="h4 mb-3">AI Analysis</h3>
+                    <p>Our advanced algorithms analyze your profile against thousands of data points to create your custom nutrition and fitness blueprint.</p>
+                    <div class="mt-4">
+                        <img src="{{ url_for('static', filename='images/ai-step.png') }}" 
+                             alt="AI Analysis" 
+                             class="img-fluid rounded"
+                             style="max-height: 150px;">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="step-card bg-white p-4 text-center shadow-sm slide-up delay-2">
+                    <div class="step-number bg-primary text-white mx-auto">
+                        <span>3</span>
+                    </div>
+                    <h3 class="h4 mb-3">Get Your Plan</h3>
+                    <p>Receive your personalized diet, restaurant, and workout recommendations instantly. Your plan evolves as you progress and provide feedback.</p>
+                    <div class="mt-4">
+                        <img src="{{ url_for('static', filename='images/plan-step.png') }}" 
+                             alt="Get Plan" 
+                             class="img-fluid rounded"
+                             style="max-height: 150px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container py-4">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="fw-bold mb-4 slide-up">The Science Behind Your Plan</h2>
+                <p class="lead slide-up delay-1">We combine multiple disciplines to create your perfect health strategy</p>
+                
+                <div class="process-timeline mt-5">
+                    <div class="timeline-step slide-up">
+                        <h3 class="h5">Nutritional Analysis</h3>
+                        <p>Our system evaluates your current diet against optimal nutritional requirements based on your biometrics and goals.</p>
+                    </div>
+                    
+                    <div class="timeline-step slide-up delay-1">
+                        <h3 class="h5">Behavioral Matching</h3>
+                        <p>We match you with meal and workout patterns that fit your lifestyle and preferences for maximum adherence.</p>
+                    </div>
+                    
+                    <div class="timeline-step slide-up delay-2">
+                        <h3 class="h5">Local Adaptation</h3>
+                        <p>Recommendations are tailored to your location, considering seasonal availability and local cuisine.</p>
+                    </div>
+                    
+                    <div class="timeline-step slide-up delay-3">
+                        <h3 class="h5">Continuous Optimization</h3>
+                        <p>Your plan automatically adjusts based on your progress, feedback, and new scientific research.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="demo-container scale-in">
+                    <div class="demo-overlay">
+                        <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#demoModal">
+                            <i class="fas fa-play me-2"></i> Watch Demo
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="row mt-4 g-3">
+                    <div class="col-md-6">
+                        <div class="benefit-card bg-white p-3 shadow-sm slide-up delay-2">
+                            <h3 class="h5"><i class="fas fa-user-check text-primary me-2"></i> Personalized</h3>
+                            <p class="mb-0 small">No generic plans - everything is customized just for you.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="benefit-card bg-white p-3 shadow-sm slide-up delay-3">
+                            <h3 class="h5"><i class="fas fa-brain text-primary me-2"></i> AI-Powered</h3>
+                            <p class="mb-0 small">Machine learning adapts to your unique patterns and preferences.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="benefit-card bg-white p-3 shadow-sm slide-up delay-2">
+                            <h3 class="h5"><i class="fas fa-flask text-primary me-2"></i> Science-Based</h3>
+                            <p class="mb-0 small">Backed by the latest nutritional and exercise research.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="benefit-card bg-white p-3 shadow-sm slide-up delay-3">
+                            <h3 class="h5"><i class="fas fa-sync-alt text-primary me-2"></i> Adaptive</h3>
+                            <p class="mb-0 small">Your plan evolves as your needs and goals change.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 bg-light">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold slide-up">Frequently Asked Questions</h2>
+            <p class="lead text-muted slide-up delay-1">Everything you need to know about getting started</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="faq-item border-0 shadow-sm slide-up">
+                        <h3 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                How long does it take to get my personalized plan?
+                            </button>
+                        </h3>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Your initial plan is generated instantly after completing your profile. Our AI takes about 2-3 minutes to analyze all your inputs and create recommendations. For even more precise results, our system continues to refine your plan over the first 48 hours as it processes additional data points.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item border-0 shadow-sm slide-up delay-1">
+                        <h3 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                Can I update my preferences later?
+                            </button>
+                        </h3>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Absolutely! You can update your dietary preferences, fitness goals, and other details at any time in your account settings. Your plan will automatically adjust within about 15 minutes to reflect your new preferences. We encourage regular updates as your lifestyle or goals change.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item border-0 shadow-sm slide-up delay-2">
+                        <h3 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                How does the restaurant recommendation work?
+                            </button>
+                        </h3>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Our system analyzes menus from restaurants in your area and matches them against your dietary profile. We consider factors like allergies, preferred cuisines, nutritional balance, and even your past dining preferences. The recommendations update automatically when you travel or when new restaurants open in your area.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item border-0 shadow-sm slide-up delay-3">
+                        <h3 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                Is there mobile app support?
+                            </button>
+                        </h3>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes! NutriNavigator is available on both iOS and Android devices. The mobile app includes all features from the web version plus additional tools like barcode scanning for nutrition tracking, workout timers, and location-based restaurant discovery. Your data syncs seamlessly across all devices.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold slide-up">Success Stories</h2>
+            <p class="lead text-muted slide-up delay-1">See how NutriNavigator has transformed lives</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm slide-up">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{{ url_for('static', filename='images/team1.jpg') }}" class="rounded-circle me-3" width="60" height="60" alt="User">
+                            <div>
+                                <h5 class="mb-0">James Wilson</h5>
+                                <div class="text-muted small">Lost 28 lbs in 3 months</div>
+                            </div>
+                        </div>
+                        <p>"The personalized meal plans made healthy eating effortless. I never felt like I was on a diet!"</p>
+                        <div class="progress mb-2" style="height: 8px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>Start: 210 lbs</span>
+                            <span>Current: 182 lbs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm slide-up delay-1">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{{ url_for('static', filename='images/team2.jpg') }}" class="rounded-circle me-3" width="60" height="60" alt="User">
+                            <div>
+                                <h5 class="mb-0">Maria Garcia</h5>
+                                <div class="text-muted small">Managed diabetes</div>
+                            </div>
+                        </div>
+                        <p>"My blood sugar levels stabilized within weeks of following NutriNavigator's recommendations."</p>
+                        <div class="progress mb-2" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 72%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>A1C: 8.2%</span>
+                            <span>Current: 6.1%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm slide-up delay-2">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{{ url_for('static', filename='images/team3.jpg') }}" class="rounded-circle me-3" width="60" height="60" alt="User">
+                            <div>
+                                <h5 class="mb-0">David Kim</h5>
+                                <div class="text-muted small">Gained 15 lbs muscle</div>
+                            </div>
+                        </div>
+                        <p>"The workout plans adapt as you progress. I've never had such consistent gains in my training."</p>
+                        <div class="progress mb-2" style="height: 8px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>Start: 155 lbs</span>
+                            <span>Current: 170 lbs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center py-4">
+        <h2 class="fw-bold mb-4 slide-up">Ready to Start Your Journey?</h2>
+        <p class="lead mb-5 slide-up delay-1">Get your personalized nutrition and fitness plan today</p>
+        <a href="{{ url_for('recommendations') }}" class="btn btn-light btn-lg px-5 slide-up delay-2">Create My Plan</a>
+    </div>
+</section>
+
+<!-- Demo Modal -->
+<div class="modal fade" id="demoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">NutriNavigator Demo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/example" 
+                            title="NutriNavigator Demo" 
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Initialize animations when elements come into view
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.slide-up, .scale-in, .fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        elements.forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    };
+    
+    // Step card hover effects
+    document.querySelectorAll('.step-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+            card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.15)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+        });
+    });
+    
+    // Initialize tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+    
+    // Initialize animations when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        animateOnScroll();
+        
+        // Add animation to hero section immediately
+        const hero = document.querySelector('.how-it-works-hero');
+        if (hero) {
+            hero.style.animationPlayState = 'running';
+        }
+    });
+    
+    // Re-run on window resize (for responsive adjustments)
+    window.addEventListener('resize', animateOnScroll);
+</script>
+{% endblock %}

@@ -1,0 +1,277 @@
+{% extends "base.html" %}
+
+{% block title %}About NutriNavigator{% endblock %}
+
+{% block extra_css %}
+<style>
+      
+    .mission-card {
+        border-left: 5px solid var(--accent-color);
+        transition: all 0.3s ease;
+    }
+    
+    .team-member {
+        transition: all 0.3s ease;
+    }
+    
+    .stat-card {
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
+    
+    .slide-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideUp 0.8s forwards;
+    }
+    
+    .scale-in {
+        transform: scale(0.9);
+        opacity: 0;
+        animation: scaleIn 0.6s forwards;
+    }
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+        to { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes scaleIn {
+        to { 
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="about-hero text-black d-flex align-items-center fade-in">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4 slide-up">Our Story</h1>
+                <p class="lead mb-0 slide-up delay-1">Revolutionizing personalized nutrition through AI technology</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 bg-light">
+    <div class="container py-4">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{{ url_for('static', filename='images/about-image.jpg') }}" 
+                     alt="About NutriNavigator" 
+                     class="img-fluid rounded shadow-lg scale-in">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-4 slide-up">Who We Are</h2>
+                <p class="lead slide-up delay-1">NutriNavigator was born from a simple idea: nutrition should be personal.</p>
+                
+                <div class="mission-card bg-white p-4 my-4 shadow-sm slide-up delay-2">
+                    <h3 class="h5"><i class="fas fa-bullseye text-primary me-2"></i> Our Mission</h3>
+                    <p class="mb-0">To empower individuals with AI-driven personalized nutrition and fitness recommendations that fit their unique lifestyle, preferences, and health goals.</p>
+                </div>
+                
+                <p class="slide-up delay-3">Founded in 2023 by a team of nutritionists, fitness experts, and AI specialists, we combine scientific research with cutting-edge technology to deliver truly personalized health solutions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 text-white" style="background-color: var(--primary-color);">
+    <div class="container py-4">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="stat-card bg-white text-dark p-4 text-center slide-up">
+                    <h3 class="display-4 fw-bold">10,000+</h3>
+                    <p class="mb-0 fw-bold">Happy Users</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card bg-white text-dark p-4 text-center slide-up delay-1">
+                    <h3 class="display-4 fw-bold">50+</h3>
+                    <p class="mb-0 fw-bold">Nutrition Experts</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card bg-white text-dark p-4 text-center slide-up delay-2">
+                    <h3 class="display-4 fw-bold">1M+</h3>
+                    <p class="mb-0 fw-bold">Recommendations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold slide-up">Meet Our Team</h2>
+            <p class="lead text-muted slide-up delay-1">The passionate people behind NutriNavigator</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="team-member bg-white p-4 text-center rounded shadow-sm slide-up">
+                    <img src="{{ url_for('static', filename='images/team1.jpg') }}" 
+                         class="rounded-circle mb-3" 
+                         width="150" 
+                         height="150" 
+                         alt="Team Member">
+                    <h3 class="h5 mb-1">Dr. Sarah Chen</h3>
+                    <p class="text-muted small mb-2">Chief Nutritionist</p>
+                    <p class="small">PhD in Nutritional Sciences with 15 years of clinical experience.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-primary mx-1"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-primary mx-1"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="team-member bg-white p-4 text-center rounded shadow-sm slide-up delay-1">
+                    <img src="{{ url_for('static', filename='images/team3.jpg') }}" 
+                         class="rounded-circle mb-3" 
+                         width="150" 
+                         height="150" 
+                         alt="Team Member">
+                    <h3 class="h5 mb-1">Michael Rodriguez</h3>
+                    <p class="text-muted small mb-2">AI Architect</p>
+                    <p class="small">Machine learning expert specializing in health applications.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-primary mx-1"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-primary mx-1"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="team-member bg-white p-4 text-center rounded shadow-sm slide-up delay-2">
+                    <img src="{{ url_for('static', filename='images/team2.jpg') }}" 
+                         class="rounded-circle mb-3" 
+                         width="150" 
+                         height="150" 
+                         alt="Team Member">
+                    <h3 class="h5 mb-1">Priya Patel</h3>
+                    <p class="text-muted small mb-2">Fitness Director</p>
+                    <p class="small">Certified personal trainer and sports nutrition specialist.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-primary mx-1"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-primary mx-1"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 bg-light">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold slide-up">Our Core Values</h2>
+            <p class="lead text-muted slide-up delay-1">What drives everything we do</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm slide-up">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-user-shield fa-2x"></i>
+                        </div>
+                        <h3 class="h5">Personalization</h3>
+                        <p class="text-muted">We believe every individual deserves recommendations tailored to their unique needs and preferences.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm slide-up delay-1">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-flask fa-2x"></i>
+                        </div>
+                        <h3 class="h5">Science-Based</h3>
+                        <p class="text-muted">Our recommendations are grounded in the latest nutritional science and research.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm slide-up delay-2">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="fas fa-heart fa-2x"></i>
+                        </div>
+                        <h3 class="h5">Empathy</h3>
+                        <p class="text-muted">We understand health journeys are personal, and we're here to support, not judge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center py-4">
+        <h2 class="fw-bold mb-4 slide-up">Ready to Start Your Journey?</h2>
+        <p class="lead mb-5 slide-up delay-1">Join our community and discover the power of personalized nutrition</p>
+        <a href="{{ url_for('recommendations') }}" class="btn btn-light btn-lg px-5 slide-up delay-2">Get Your Plan Now</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.slide-up, .scale-in, .fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        elements.forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    };
+    document.querySelectorAll('.team-member').forEach(member => {
+        member.addEventListener('mouseenter', () => {
+            member.style.transform = 'translateY(-10px)';
+            member.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
+        });
+        member.addEventListener('mouseleave', () => {
+            member.style.transform = 'translateY(0)';
+            member.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+        });
+    });
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        animateOnScroll();
+        
+         const hero = document.querySelector('.about-hero');
+        if (hero) {
+            hero.style.animationPlayState = 'running';
+        }
+    });
+    
+    window.addEventListener('resize', animateOnScroll);
+</script>
+{% endblock %}

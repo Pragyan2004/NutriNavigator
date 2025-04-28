@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}Terms of Service | NutriNavigator{% endblock %}
+
+{% block content %}
+<div class="bg-light py-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">Terms of Service</h1>
+                <p class="lead">The legal terms governing your use of our platform</p>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-0 shadow-sm mb-5">
+                    <div class="card-body p-5">
+                        <div class="alert alert-info mb-5">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-info-circle me-3 fa-2x"></i>
+                                <div>
+                                    <p class="mb-0"><strong>Last Updated:</strong> Please review these terms carefully before using our services.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="h3 fw-bold mb-4 border-bottom pb-3">1. Acceptance of Terms</h2>
+                        <p>By accessing or using the NutriNavigator platform, you agree to be bound by these Terms of Service. If you do not agree to all terms, you may not use our services.</p>
+
+                        <h2 class="h3 fw-bold mt-5 mb-4 border-bottom pb-3">2. Service Description</h2>
+                        <p>NutriNavigator provides personalized nutrition and fitness recommendations through:</p>
+                        <ul class="list-unstyled ms-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> AI-generated meal plans</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Restaurant recommendations</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Custom workout routines</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Health tracking tools</li>
+                        </ul>
+
+                        <h2 class="h3 fw-bold mt-5 mb-4 border-bottom pb-3">3. User Responsibilities</h2>
+                        <div class="row g-4 mt-4">
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-light">
+                                    <div class="card-body">
+                                        <h3 class="h5 fw-bold"><i class="fas fa-user-shield text-primary me-2"></i> Account Security</h3>
+                                        <p class="small">You are responsible for maintaining the confidentiality of your account credentials.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 bg-light">
+                                    <div class="card-body">
+                                        <h3 class="h5 fw-bold"><i class="fas fa-heartbeat text-primary me-2"></i> Medical Disclaimer</h3>
+                                        <p class="small">Our services are not medical advice. Consult a healthcare professional before making health changes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="h3 fw-bold mt-5 mb-4 border-bottom pb-3">4. Intellectual Property</h2>
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="me-4 text-primary">
+                                <i class="fas fa-copyright fa-2x"></i>
+                            </div>
+                            <div>
+                                <p>All content on the NutriNavigator platform, including text, graphics, logos, and software, is our property or our licensors' and is protected by intellectual property laws.</p>
+                            </div>
+                        </div>
+
+                        <h2 class="h3 fw-bold mt-5 mb-4 border-bottom pb-3">5. Limitations of Liability</h2>
+                        <div class="alert alert-warning">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-exclamation-triangle me-3"></i>
+                                <div>
+                                    <p class="mb-0">NutriNavigator shall not be liable for any indirect, incidental, special, or consequential damages resulting from use of our services.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="h3 fw-bold mt-5 mb-4 border-bottom pb-3">6. Modifications to Terms</h2>
+                        <p>We reserve the right to modify these terms at any time. Continued use after changes constitutes acceptance of the new terms.</p>
+
+                        <h2 class="h3 fw-bold mt-5 mb-4 border-bottom pb-3">7. Governing Law</h2>
+                        <p>These terms shall be governed by and construed in accordance with the laws of the jurisdiction where our company is registered.</p>
+
+                        <div class="card border-0 bg-light mt-5">
+                            <div class="card-body p-4 text-center">
+                                <h3 class="h4 mb-3">Questions About Our Terms?</h3>
+                                <p class="mb-4">Contact our legal team for any questions regarding these terms.</p>
+                                <a href="{{ url_for('contact') }}" class="btn btn-primary px-4">
+                                    <i class="fas fa-envelope me-2"></i> Contact Legal Team
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-muted small text-center">
+                    <p>© NutriNavigator. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-5px)';
+            card.style.transition = 'transform 0.3s ease';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}Privacy Policy | NutriNavigator{% endblock %}
+
+{% block content %}
+<div class="bg-light py-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">Our Privacy Commitment</h1>
+                <p class="lead">Transparency and security in how we handle your personal information</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-0 shadow-sm mb-5">
+                    <div class="card-body p-5">
+                        <h2 class="h3 fw-bold mb-4">Information We Collect</h2>
+                        <p>To provide our services, we collect certain types of information:</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex">
+                                    <div class="me-4 text-primary">
+                                        <i class="fas fa-user-circle fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="h5">Personal Information</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">• Name and contact details</li>
+                                            <li class="mb-2">• Age, gender, and health metrics</li>
+                                            <li>• Dietary preferences and restrictions</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex">
+                                    <div class="me-4 text-primary">
+                                        <i class="fas fa-chart-line fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="h5">Usage Data</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">• Interaction with our services</li>
+                                            <li class="mb-2">• Feature usage patterns</li>
+                                            <li>• Device and browser information</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h2 class="h3 fw-bold mt-5 mb-4">How We Use Your Information</h2>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 bg-light">
+                                    <div class="card-body text-center p-4">
+                                        <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px;">
+                                            <i class="fas fa-utensils"></i>
+                                        </div>
+                                        <h3 class="h5">Personalized Recommendations</h3>
+                                        <p class="small text-muted">To generate customized diet and fitness plans</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 bg-light">
+                                    <div class="card-body text-center p-4">
+                                        <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px;">
+                                            <i class="fas fa-cogs"></i>
+                                        </div>
+                                        <h3 class="h5">Service Improvement</h3>
+                                        <p class="small text-muted">To enhance and optimize our platform</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 bg-light">
+                                    <div class="card-body text-center p-4">
+                                        <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px;">
+                                            <i class="fas fa-bell"></i>
+                                        </div>
+                                        <h3 class="h5">Communication</h3>
+                                        <p class="small text-muted">To send important service updates</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h2 class="h3 fw-bold mt-5 mb-4">Data Protection</h2>
+                        <div class="alert alert-primary">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-shield-alt fa-2x"></i>
+                                </div>
+                                <div>
+                                    <p class="mb-0">We implement industry-standard security measures including encryption, access controls, and regular security audits to protect your personal information.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body p-4">
+                                        <h3 class="h5 fw-bold"><i class="fas fa-lock me-2 text-primary"></i> Encryption</h3>
+                                        <p class="small">All data is encrypted in transit and at rest using TLS and AES-256 encryption.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body p-4">
+                                        <h3 class="h5 fw-bold"><i class="fas fa-user-shield me-2 text-primary"></i> Access Control</h3>
+                                        <p class="small">Strict access policies ensure only authorized personnel can view your data.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h2 class="h3 fw-bold mt-5 mb-4">Your Rights</h2>
+                        <p>You have control over your personal information:</p>
+                        
+                        <div class="accordion mt-4" id="privacyAccordion">
+                            <div class="accordion-item border-0 mb-3">
+                                <h3 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed shadow-none bg-light rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                        <i class="fas fa-eye me-2 text-primary"></i> Right to Access
+                                    </button>
+                                </h3>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#privacyAccordion">
+                                    <div class="accordion-body">
+                                        You can request a copy of all personal data we hold about you at any time.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item border-0 mb-3">
+                                <h3 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed shadow-none bg-light rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                        <i class="fas fa-trash-alt me-2 text-primary"></i> Right to Erasure
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#privacyAccordion">
+                                    <div class="accordion-body">
+                                        You may request deletion of your personal data, subject to certain legal limitations.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item border-0">
+                                <h3 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed shadow-none bg-light rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                        <i class="fas fa-edit me-2 text-primary"></i> Right to Rectification
+                                    </button>
+                                </h3>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#privacyAccordion">
+                                    <div class="accordion-body">
+                                        You can update or correct inaccurate personal information through your account settings or by contacting us.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card border-0 bg-light mt-5">
+                            <div class="card-body p-4 text-center">
+                                <h3 class="h4 mb-3">Questions About Our Privacy Policy?</h3>
+                                <p class="mb-4">Our team is available to address any concerns you may have about your data privacy.</p>
+                                <a href="{{ url_for('contact') }}" class="btn btn-primary px-4">
+                                    <i class="fas fa-envelope me-2"></i> Contact Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-muted small">
+                    <p>© NutriNavigator. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-5px)';
+            card.style.transition = 'transform 0.3s ease';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+</script>
+{% endblock %}

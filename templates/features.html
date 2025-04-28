@@ -1,0 +1,564 @@
+{% extends "base.html" %}
+
+{% block title %}Features | NutriNavigator{% endblock %}
+
+{% block extra_css %}
+<style>
+
+    
+    .feature-card {
+        transition: all 0.3s ease;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 100%;
+    }
+    
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+    
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
+    
+    .slide-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideUp 0.8s forwards;
+    }
+    
+    .scale-in {
+        transform: scale(0.9);
+        opacity: 0;
+        animation: scaleIn 0.6s forwards;
+    }
+    
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+        to { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes scaleIn {
+        to { 
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .nav-pills .nav-link {
+        color: var(--dark-color);
+        font-weight: 500;
+        padding: 12px 20px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-pills .nav-link.active {
+        background-color: var(--light-color);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+    }
+    .comparison-table {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .comparison-table thead th {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    .comparison-table tbody tr:nth-child(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+    
+    .comparison-table td {
+        padding: 12px 15px;
+        vertical-align: middle;
+    }
+    
+    .comparison-table .feature-name {
+        font-weight: 500;
+    }
+    
+    .comparison-table .check-mark {
+        color: var(--success-color);
+        font-size: 1.2rem;
+    }
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .feature-highlight {
+        border-left: 4px solid var(--accent-color);
+        transition: all 0.3s ease;
+    }
+    
+    .feature-highlight:hover {
+        transform: translateX(5px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="features-hero text-black d-flex align-items-center fade-in">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4 slide-up">Powerful Features</h1>
+                <p class="lead mb-0 slide-up delay-1">Discover how NutriNavigator can transform your health journey</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 bg-light">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold slide-up">Tailored to Your Needs</h2>
+            <p class="lead text-muted slide-up delay-1">Explore our comprehensive feature set</p>
+        </div>
+        
+        <ul class="nav nav-pills mb-4 justify-content-center slide-up delay-1" id="features-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="diet-tab" data-bs-toggle="pill" data-bs-target="#diet" type="button">
+                    <i class="fas fa-utensils me-2 text-black"></i>Diet
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="restaurants-tab" data-bs-toggle="pill" data-bs-target="#restaurants" type="button">
+                    <i class="fas fa-store me-2"></i>Restaurants
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="workouts-tab" data-bs-toggle="pill" data-bs-target="#workouts" type="button">
+                    <i class="fas fa-dumbbell me-2"></i>Workouts
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="analytics-tab" data-bs-toggle="pill" data-bs-target="#analytics" type="button">
+                    <i class="fas fa-chart-line me-2"></i>Analytics
+                </button>
+            </li>
+        </ul>
+        
+        <div class="tab-content slide-up delay-2" id="features-tabContent">
+            <div class="tab-pane fade show active" id="diet" role="tabpanel">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-user-tag"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Personalized Meal Plans</h3>
+                            <p>Customized to your dietary preferences, allergies, and health goals.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-carrot"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Nutrition Tracking</h3>
+                            <p>Monitor macros, micros, and calories with our comprehensive tracker.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Meal Timing</h3>
+                            <p>Optimized eating schedules based on your daily routine and goals.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Recipe Library</h3>
+                            <p>Thousands of healthy recipes tailored to your preferences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-pane fade" id="restaurants" role="tabpanel">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Local Discovery</h3>
+                            <p>Find restaurants near you that match your dietary needs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-filter"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Advanced Filtering</h3>
+                            <p>Filter by cuisine, dietary restrictions, and price range.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Menu Analysis</h3>
+                            <p>Get recommendations for the healthiest menu options.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Mobile Integration</h3>
+                            <p>Access recommendations on the go with our mobile app.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-pane fade" id="workouts" role="tabpanel">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Custom Workouts</h3>
+                            <p>Tailored to your fitness level, goals, and available equipment.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Exercise Videos</h3>
+                            <p>Step-by-step video demonstrations for every exercise.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Progress Tracking</h3>
+                            <p>Monitor your strength gains and endurance improvements.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Recovery Tools</h3>
+                            <p>Stretching and recovery routines to prevent injury.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-pane fade" id="analytics" role="tabpanel">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-weight"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Weight Trends</h3>
+                            <p>Track your progress with detailed charts and insights.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Nutrition Reports</h3>
+                            <p>Weekly breakdowns of your macro and micronutrient intake.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-burn"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Calorie Analysis</h3>
+                            <p>Understand your energy balance and expenditure.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card bg-white p-4 text-center shadow-sm">
+                            <div class="feature-icon bg-primary bg-opacity-10 text-primary mx-auto">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Smart Notifications</h3>
+                            <p>Get alerts when you're off track with your goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container py-4">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="pe-lg-4 slide-up">
+                    <h2 class="fw-bold mb-4">See It In Action</h2>
+                    <p class="lead mb-4">Watch how NutriNavigator makes healthy living simple and personalized.</p>
+                    
+                    <div class="feature-highlight bg-white p-4 mb-3 shadow-sm">
+                        <h3 class="h5 mb-2"><i class="fas fa-magic text-primary me-2"></i> One-Click Personalization</h3>
+                        <p class="mb-0">Our AI analyzes your profile to instantly generate custom recommendations.</p>
+                    </div>
+                    
+                    <div class="feature-highlight bg-white p-4 mb-3 shadow-sm delay-1">
+                        <h3 class="h5 mb-2"><i class="fas fa-sync-alt text-primary me-2"></i> Dynamic Updates</h3>
+                        <p class="mb-0">Your plan automatically adjusts as your preferences and goals evolve.</p>
+                    </div>
+                    
+                    <div class="feature-highlight bg-white p-4 shadow-sm delay-2">
+                        <h3 class="h5 mb-2"><i class="fas fa-mobile-alt text-primary me-2"></i> Always Accessible</h3>
+                        <p class="mb-0">Access your plan anywhere with our web and mobile platforms.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="video-container scale-in">
+                    <iframe src="https://www.youtube.com/embed/example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold slide-up">Why Choose NutriNavigator?</h2>
+            <p class="lead text-muted slide-up delay-1">See how we compare to other solutions</p>
+        </div>
+        
+        <div class="table-responsive slide-up delay-2">
+            <table class="table comparison-table bg-white">
+                <thead>
+                    <tr>
+                        <th scope="col">Feature</th>
+                        <th scope="col" class="text-center">Basic Apps</th>
+                        <th scope="col" class="text-center">NutriNavigator</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Personalized Meal Plans</td>
+                        <td class="text-center"><i class="fas fa-times text-danger"></i></td>
+                        <td class="text-center"><i class="fas fa-check check-mark"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Restaurant Recommendations</td>
+                        <td class="text-center"><i class="fas fa-times text-danger"></i></td>
+                        <td class="text-center"><i class="fas fa-check check-mark"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Custom Workout Plans</td>
+                        <td class="text-center"><i class="fas fa-times text-danger"></i></td>
+                        <td class="text-center"><i class="fas fa-check check-mark"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">AI-Powered Adjustments</td>
+                        <td class="text-center"><i class="fas fa-times text-danger"></i></td>
+                        <td class="text-center"><i class="fas fa-check check-mark"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Comprehensive Analytics</td>
+                        <td class="text-center"><i class="fas fa-check text-muted"></i></td>
+                        <td class="text-center"><i class="fas fa-check check-mark"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Mobile & Web Access</td>
+                        <td class="text-center"><i class="fas fa-check text-muted"></i></td>
+                        <td class="text-center"><i class="fas fa-check check-mark"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold slide-up">What Our Users Say</h2>
+            <p class="lead text-muted slide-up delay-1">Join thousands of satisfied users</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm slide-up">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{{ url_for('static', filename='images/team1.jpg') }}" class="rounded-circle me-3" width="50" height="50" alt="User">
+                            <div>
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">"The personalized meal plans have completely transformed my eating habits. I've never felt better!"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm slide-up delay-1">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{{ url_for('static', filename='images/team3.jpg') }}" class="rounded-circle me-3" width="50" height="50" alt="User">
+                            <div>
+                                <h5 class="mb-0">Michael Chen</h5>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">"As someone with multiple food allergies, the restaurant recommendations are a lifesaver when traveling."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm slide-up delay-2">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{{ url_for('static', filename='images/team2.jpg') }}" class="rounded-circle me-3" width="50" height="50" alt="User">
+                            <div>
+                                <h5 class="mb-0">Priya Patel</h5>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">"The workout plans adapt as I progress. I've gained more strength in 3 months than I did in a year on my own."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center py-4">
+        <h2 class="fw-bold mb-4 slide-up">Ready to Experience the Difference?</h2>
+        <p class="lead mb-5 slide-up delay-1">Join NutriNavigator today and start your personalized health journey</p>
+        <div class="d-flex justify-content-center gap-3 slide-up delay-2">
+            <a href="{{ url_for('recommendations') }}" class="btn btn-light btn-lg px-4">Get Started</a>
+            <a href="{{ url_for('how_it_works') }}" class="btn btn-outline-light btn-lg px-4">Learn More</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+     const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.slide-up, .scale-in, .fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        elements.forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    };
+    document.querySelectorAll('.feature-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+            card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+        });
+    });
+    const tabEls = document.querySelectorAll('button[data-bs-toggle="pill"]');
+    tabEls.forEach(tabEl => {
+        tabEl.addEventListener('shown.bs.tab', () => {          
+            const activePane = document.querySelector(tabEl.getAttribute('data-bs-target'));
+            activePane.querySelectorAll('.feature-card').forEach((card, index) => {
+                card.style.animation = `slideUp 0.5s forwards ${index * 0.1}s`;
+            });
+        });
+    });
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        animateOnScroll();
+         const hero = document.querySelector('.features-hero');
+        if (hero) {
+            hero.style.animationPlayState = 'running';
+        }
+    });
+    
+    window.addEventListener('resize', animateOnScroll);
+</script>
+{% endblock %}

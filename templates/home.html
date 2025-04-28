@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}Personalized Nutrition & Fitness Recommendations{% endblock %}
+
+{% block content %}
+<section class="hero-section py-5 text-center text-black" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))'; background-size: cover; background-position: center;">
+    <div class="container py-5">
+        <div class="row py-lg-5">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold mb-4">Your Personalized Health Companion</h1>
+                <p class="lead mb-5">AI-powered diet, restaurant, and workout recommendations tailored specifically for you</p>
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                    <a href="{{ url_for('recommendations') }}" class="btn btn-primary btn-lg px-4 gap-3">Get Started</a>
+                    <a href="{{ url_for('how_it_works') }}" class="btn btn-outline-black btn-lg px-4">How It Works</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Why Choose NutriNavigator?</h2>
+            <p class="lead text-muted">We combine AI technology with nutrition science for optimal results</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-primary bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style='width: 60px; height: 60px;'>
+                            <i class="fas fa-utensils fa-2x"></i>
+                        </div>                        
+                        <h3 class="h4">Personalized Diet Plans</h3>
+                        <p class="text-muted">Custom meal recommendations based on your dietary preferences, allergies, and health conditions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-primary bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px;">
+                            <i class="fas fa-store fa-2x"></i>
+                        </div>
+                        <h3 class="h4">Restaurant Suggestions</h3>
+                        <p class="text-muted">Discover eateries in your area that match your dietary needs and preferences.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-primary bg-gradient text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 60px; height: 60px;">
+                            <i class="fas fa-dumbbell fa-2x"></i>
+                        </div>
+                        <h3 class="h4">Custom Workouts</h3>
+                        <p class="text-muted">Exercise routines tailored to your fitness level, goals, and available equipment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">How NutriNavigator Works</h2>
+            <p class="lead text-muted">Get your personalized plan in just 3 simple steps</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="d-flex">
+                    <div class="me-4">
+                        <div class="step-number bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 1.5rem; font-weight: bold;">1</div>
+                    </div>
+                    <div>
+                        <h3 class="h4">Tell Us About Yourself</h3>
+                        <p class="text-muted">Provide basic information about your age, weight, dietary preferences, and health goals.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="d-flex">
+                    <div class="me-4">
+                        <div class="step-number bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 1.5rem; font-weight: bold;">2</div>
+                    </div>
+                    <div>
+                        <h3 class="h4">AI Analysis</h3>
+                        <p class="text-muted">Our advanced algorithms process your information to create personalized recommendations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="d-flex">
+                    <div class="me-4">
+                        <div class="step-number bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 1.5rem; font-weight: bold;">3</div>
+                    </div>
+                    <div>
+                        <h3 class="h4">Get Your Plan</h3>
+                        <p class="text-muted">Receive your customized diet, restaurant, and workout recommendations instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="{{ url_for('how_it_works') }}" class="btn btn-outline-primary">Learn More</a>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">What Our Users Say</h2>
+            <p class="lead text-muted">Real people, real results</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex mb-3">
+                            <img src="{{ url_for('static', filename='images/team2.jpg') }}" class="rounded-circle me-3" width="60" height="60" alt="User">
+                            <div>
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">"NutriNavigator completely transformed my eating habits. The personalized meal plans made healthy eating so much easier!"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex mb-3">
+                            <img src="{{ url_for('static', filename='images/team1.jpg') }}" class="rounded-circle me-3" width="60" height="60" alt="User">
+                            <div>
+                                <h5 class="mb-0">Michael Chen</h5>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">"As someone with food allergies, finding restaurants was always stressful. NutriNavigator solved that problem for me."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex mb-3">
+                            <img src="{{ url_for('static', filename='images/team2.jpg') }}" class="rounded-circle me-3" width="60" height="60" alt="User">
+                            <div>
+                                <h5 class="mb-0">Priya Patel</h5>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">"The workout recommendations are perfect for my fitness level. I've never felt stronger or more energized!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center py-4">
+        <h2 class="fw-bold mb-4">Ready to Transform Your Health?</h2>
+        <p class="lead mb-5">Join thousands of happy users who've discovered a better way to eat and exercise</p>
+        <a href="{{ url_for('recommendations') }}" class="btn btn-light btn-lg px-5">Get Your Custom Plan Now</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-5px)';
+            card.style.transition = 'transform 0.3s ease';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}

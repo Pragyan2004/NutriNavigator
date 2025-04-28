@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriNavigator: AI-Powered Health Recommendations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        .input-field {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .input-field:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
+        }
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-gray-100 flex items-center justify-center p-4">
+    <div class="form-container max-w-4xl w-full rounded-2xl overflow-hidden animate__animated animate__fadeIn">
+        <div class="relative">
+            <div class="absolute -top-10 -left-10 w-20 h-20 bg-purple-600 rounded-full filter blur-xl opacity-20"></div>
+            <div class="absolute -bottom-10 -right-10 w-24 h-24 bg-blue-600 rounded-full filter blur-xl opacity-20"></div>
+            <div class="p-8 md:p-10">
+                <div class="text-center mb-8 animate__animated animate__fadeInDown">
+                    <div class="flex justify-center mb-4">
+                        <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_vybwn7df.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop autoplay></lottie-player>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500 mb-2">
+                        NutriNavigator
+                    </h1>
+                    <p class="text-gray-400 text-lg">
+                        AI-Powered Personalized Health Recommendations
+                    </p>
+                </div>
+
+                <form action="/recommend" method="post" class="space-y-6 animate__animated animate__fadeIn animate__delay-1s">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="animate__animated animate__fadeInUp">
+                            <label class="block mb-2 font-medium text-gray-300">Age</label>
+                            <input type="number" name="age" 
+                                   class="input-field w-full p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none"
+                                   placeholder="e.g. 28">
+                        </div>
+                        <div class="animate__animated animate__fadeInUp animate__delay-1s">
+                            <label class="block mb-2 font-medium text-gray-300">Gender</label>
+                            <div class="flex space-x-4">
+                                <label class="flex items-center">
+                                    <input type="radio" name="gender" value="male" class="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                    <span class="text-gray-300">Male</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="gender" value="female" class="mr-2 h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                    <span class="text-gray-300">Female</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="animate__animated animate__fadeInUp animate__delay-2s">
+                            <label class="block mb-2 font-medium text-gray-300">Weight (kg)</label>
+                            <input type="number" name="weight" 
+                                   class="input-field w-full p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none"
+                                   placeholder="e.g. 70">
+                        </div>
+                        <div class="animate__animated animate__fadeInUp animate__delay-3s">
+                            <label class="block mb-2 font-medium text-gray-300">Height (cm)</label>
+                            <input type="number" name="height" 
+                                   class="input-field w-full p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none"
+                                   placeholder="e.g. 175">
+                        </div>
+                        <div class="animate__animated animate__fadeInUp animate__delay-4s">
+                            <label class="block mb-2 font-medium text-gray-300">Diet Preference</label>
+                            <select name="veg_or_nonveg" 
+                                    class="input-field w-full p-3 rounded-lg text-white focus:outline-none">
+                                <option value="veg">Vegetarian</option>
+                                <option value="nonveg">Non-Vegetarian</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="pescatarian">Pescatarian</option>
+                            </select>
+                        </div>
+                        <div class="animate__animated animate__fadeInUp animate__delay-5s">
+                            <label class="block mb-2 font-medium text-gray-300">Health Conditions</label>
+                            <input type="text" name="disease" 
+                                   class="input-field w-full p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none"
+                                   placeholder="e.g. Diabetes, Hypertension">
+                        </div>
+                        <div class="animate__animated animate__fadeInUp animate__delay-6s">
+                            <label class="block mb-2 font-medium text-white-300">Region/Cuisine Preference</label>
+                            <select name="region" 
+                                    class="input-field w-full p-3 rounded-lg text-black focus:outline-none">
+                                <option value="">Any</option>
+                                <option value="indian">Indian</option>
+                                <option value="mediterranean">Mediterranean</option>
+                                <option value="asian">Asian</option>
+                                <option value="western">Western</option>
+                                <option value="middle_eastern">Middle Eastern</option>
+                            </select>
+                        </div>
+                        <div class="animate__animated animate__fadeInUp animate__delay-7s">
+                            <label class="block mb-2 font-medium text-gray-300">Allergies</label>
+                            <input type="text" name="allergics" 
+                                   class="input-field w-full p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none"
+                                   placeholder="e.g. Peanuts, Shellfish">
+                        </div>
+                    </div>
+                    <div class="animate__animated animate__fadeInUp animate__delay-8s">
+                        <label class="block mb-2 font-medium text-gray-300">Food Preferences</label>
+                        <textarea name="foodtype" rows="2"
+                                  class="input-field w-full p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none"
+                                  placeholder="Any specific foods you love or avoid?"></textarea>
+                    </div>
+                    <div class="animate__animated animate__fadeInUp animate__delay-9s">
+                        <label class="block mb-2 font-medium text-gray-300">Activity Level</label>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                            <label class="flex items-center justify-center p-3 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition">
+                                <input type="radio" name="activity" value="sedentary" class="hidden peer">
+                                <span class="peer-checked:text-blue-400">Sedentary</span>
+                            </label>
+                            <label class="flex items-center justify-center p-3 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition">
+                                <input type="radio" name="activity" value="light" class="hidden peer">
+                                <span class="peer-checked:text-blue-400">Light</span>
+                            </label>
+                            <label class="flex items-center justify-center p-3 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition">
+                                <input type="radio" name="activity" value="moderate" class="hidden peer">
+                                <span class="peer-checked:text-blue-400">Moderate</span>
+                            </label>
+                            <label class="flex items-center justify-center p-3 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition">
+                                <input type="radio" name="activity" value="active" class="hidden peer">
+                                <span class="peer-checked:text-blue-400">Active</span>
+                            </label>
+                            <label class="flex items-center justify-center p-3 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition">
+                                <input type="radio" name="activity" value="very_active" class="hidden peer">
+                                <span class="peer-checked:text-blue-400">Very Active</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="animate__animated animate__fadeInUp animate__delay-10s">
+                        <label class="block mb-2 font-medium text-gray-300">Primary Goal</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="flex items-center justify-center p-3 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition">
+                                <input type="radio" name="goal" value="weight_loss" class="hidden peer">
+                                <span class="peer-checked:text-blue-400">Weight Loss</span>
+                            </label>
+                            <label class="flex items-center justify-center p-3 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition">
+                                <input type="radio" name="goal" value="muscle_gain" class="hidden peer">
+                                <span class="peer-checked:text-blue-400">Muscle Gain</span>
+                            </label>
+                            <label class="flex items-center justify-center p-3 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition">
+                                <input type="radio" name="goal" value="maintenance" class="hidden peer">
+                                <span class="peer-checked:text-blue-400">Maintenance</span>
+                            </label>
+                            <label class="flex items-center justify-center p-3 rounded-lg bg-gray-800 hover:bg-gray-700 cursor-pointer transition">
+                                <input type="radio" name="goal" value="health" class="hidden peer">
+                                <span class="peer-checked:text-blue-400">Better Health</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="pt-6 animate__animated animate__fadeInUp animate__delay-11s">
+                        <button type="submit" class="submit-btn w-full py-3 px-6 rounded-lg text-lg font-bold flex items-center justify-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            <span>Generate My Personalized Plan</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate__animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(entry.target.dataset.animation);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

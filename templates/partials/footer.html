@@ -1,0 +1,61 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <h3 class="footer-brand">
+                    <i class="fas fa-utensils me-2"></i>NutriNavigator
+                </h3>
+                <p class="footer-about">
+                    AI-powered personalized diet, restaurant, and workout recommendations tailored to your unique needs.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-2 col-md-3 mb-4 mb-md-0">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('features') }}">Features</a></li>
+                    <li><a href="{{ url_for('how_it_works') }}">How It Works</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-2 col-md-3 mb-4 mb-md-0">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="{{ url_for('privacy') }}">Privacy Policy</a></li>
+                    <li><a href="{{ url_for('terms') }}">Terms of Service</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-4 col-md-12">
+                <h4 class="footer-title">Newsletter</h4>
+                <p class="newsletter-text">Subscribe to get health tips and updates</p>
+                <form class="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright">&copy; 2025 NutriNavigator. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="developer-credit">Made with <i class="fas fa-heart text-danger"></i> by Your Team</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

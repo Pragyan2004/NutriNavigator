@@ -1,0 +1,38 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="{{ url_for('home') }}">
+                <i class="fas fa-utensils me-2"></i>
+                <span class="brand-name">NutriNavigator</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_for('home') %}active{% endif %}" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_for('about') %}active{% endif %}" href="{{ url_for('about') }}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_for('features') %}active{% endif %}" href="{{ url_for('features') }}">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_for('how_it_works') %}active{% endif %}" href="{{ url_for('how_it_works') }}">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_for('recommendations') %}active{% endif %}" href="{{ url_for('recommendations') }}">Get Recommendations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == url_for('contact') %}active{% endif %}" href="{{ url_for('contact') }}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu-overlay"></div>
+</header>
